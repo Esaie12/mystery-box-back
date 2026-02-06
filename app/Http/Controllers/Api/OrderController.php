@@ -46,6 +46,7 @@ class OrderController extends Controller
 
             'dateDelivery' => 'required|date',
             'instructionDelivery' => 'nullable|string|max:255',
+            'transaction_id'=>['required','string']
         ]);
 
         DB::beginTransaction(); // ⬅️ Début de la transaction
@@ -77,6 +78,7 @@ class OrderController extends Controller
 
                 // Prix (fixe pour l’instant)
                 'amount' =>  $category->price,
+                'transaction_id'=>$validated['transaction_id']
             ]);
 
             //Le choix du produit
@@ -132,7 +134,7 @@ class OrderController extends Controller
     {
         //$order = Order::with(['category', 'product'])->find($id);
 
-        $order = Order::with(['category'])->where('reference',$id)->first();
+        $order = Order::with(['category','status'])->where('reference',$id)->first();
 
         return response()->json($order); 
 

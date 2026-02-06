@@ -19,7 +19,8 @@ class Order extends Model
         'delivery_instructions',
         'category_id',
         'amount',
-        'status_id'
+        'status_id',
+        'transaction_id'
     ];
 
     public function status()
