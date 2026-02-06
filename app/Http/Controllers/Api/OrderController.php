@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\User\OrderCreatedMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
@@ -100,7 +102,11 @@ class OrderController extends Controller
                 ]);
             }
 
+            //Envoyer le mail de commande à la personne
+
             DB::commit();
+
+            Mail::to( $user->email )->send(new OrderCreatedMail($order));
 
             return response()->json([
                 'message' => 'Commande créée avec succès',
