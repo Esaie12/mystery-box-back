@@ -18,13 +18,14 @@ class CategoryProductSeeder extends Seeder
                 'color' => 'rose',
                 'mystery' => 'Vous recevrez 2 à 3 produits sélectionnés aléatoirement !',
                 'products' => [
-                    ['icon' => '📦', 'name' => 'Boîte premium 1'],
-                    ['icon' => '📦', 'name' => 'Boîte premium 2'],
-                    ['icon' => '🌹', 'name' => 'Bouquet de fleurs'],
-                    ['icon' => '👗', 'name' => 'Pagne élégant'],
-                    ['icon' => '🍷', 'name' => 'Vin de qualité'],
+                    ['icon' => '📦', 'name' => 'Vin de qualité', 'compatible'=>'all'],
+                    ['icon' => '📦', 'name' => 'Chocolat', 'compatible'=>'all'],
+                    ['icon' => '🌹', 'name' => 'Montre Homme/Femme', 'compatible'=>'all'],
+                    ['icon' => '👗', 'name' => 'Parfums', 'compatible'=>'all'],
+                    ['icon' => '🍷', 'name' => 'Taxe personnalisée', 'compatible'=>'all'],
+                    ['icon' => '🍷', 'name' => 'Boite Galant', 'compatible'=>'all'],
                 ],
-                'price'=>3000
+                'price'=>5000
             ],
             [
                 'title' => 'Romantique',
@@ -34,13 +35,14 @@ class CategoryProductSeeder extends Seeder
                 'color' => 'pink',
                 'mystery' => 'Vous recevrez 2 à 3 produits sélectionnés aléatoirement !',
                 'products' => [
-                    ['icon' => '🕯️', 'name' => 'Bougies parfumées'],
-                    ['icon' => '🍫', 'name' => 'Chocolats artisanaux'],
-                    ['icon' => '💌', 'name' => 'Carte d\'amour personnalisée'],
-                    ['icon' => '🧴', 'name' => 'Coffret spa & bien-être'],
-                    ['icon' => '🎵', 'name' => 'Playlist romantique personnalisée'],
+                    ['icon' => '📦', 'name' => 'Champagne de qualité', 'compatible'=>'all'],
+                    ['icon' => '🕯️', 'name' => 'Parfums'],
+                    ['icon' => '🍫', 'name' => 'Taxe personnalisée'],
+                    ['icon' => '💌', 'name' => 'Beurre de karité au cacao', 'compatible'=>'femme'],
+                    ['icon' => '🧴', 'name' => 'Montre Homme/Femme'],
+                    ['icon' => '🎵', 'name' => 'Boite Romantique'],
                 ],
-                'price'=>5000
+                'price'=>10000
             ],
             [
                 'title' => 'Le Boss',
@@ -51,12 +53,13 @@ class CategoryProductSeeder extends Seeder
                 'mystery' => 'Vous recevrez 3 à 4 produits premium sélectionnés !',
                 'products' => [
                     ['icon' => '💍', 'name' => 'Bijou de luxe'],
-                    ['icon' => '🥂', 'name' => 'Champagne millésimé'],
-                    ['icon' => '👜', 'name' => 'Accessoire de marque'],
-                    ['icon' => '🌹', 'name' => 'Roses éternelles premium'],
-                    ['icon' => '🎁', 'name' => 'Expérience VIP exclusive'],
+                    ['icon' => '🥂', 'name' => 'Pagne de qualité'],
+                    ['icon' => '🕯️', 'name' => 'Parfums'],
+                    ['icon' => '🌹', 'name' => 'Montre Homme/Femme', 'compatible'=>'all'],
+                    ['icon' => '🍫', 'name' => 'Taxe personnalisée'],
+                    ['icon' => '🎁', 'name' => 'Boite le Boss'],
                 ],
-                'price'=>10000
+                'price'=>15000
             ],
         ];
 
