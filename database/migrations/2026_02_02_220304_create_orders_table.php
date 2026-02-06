@@ -34,7 +34,7 @@ return new class extends Migration
            
             // Payment info
             $table->decimal('amount', 10, 2)->default(0); 
-
+            $table->string('transaction_id')->nullable();
             $table->timestamps();
         });
     }
