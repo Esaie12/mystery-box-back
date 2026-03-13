@@ -98,12 +98,7 @@
     // Burger
     document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
 
-    // Password toggle
-    function togglePwd(id, btn) {
-      const inp = document.getElementById(id);
-      inp.type = inp.type === 'password' ? 'text' : 'password';
-    }
-
+    
     
   </script>
 
