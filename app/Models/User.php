@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-//Les champs of our model
+use Illuminate\Database\Eloquent\SoftDeletes; // Pour le soft delete
+use App\Models\Order;
+
 class User extends Authenticatable  implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes; // Ajout de SoftDeletes
 
+    // Champs modifiables
     protected $fillable = [
         'name',
         'email',
@@ -19,17 +22,20 @@ class User extends Authenticatable  implements MustVerifyEmail
         'affiliate_code'
     ];
 
+    // Champs masqués dans les réponses JSON
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    // Casting des champs
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
-    public function products()
+    // Relation avec les commandes (Order)
+    public function orders()
     {
         return $this->hasMany(Order::class);
     }
