@@ -18,6 +18,8 @@ class User extends Authenticatable  implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role',
+        'affiliate_code'
     ];
 
     // Champs masqués dans les réponses JSON

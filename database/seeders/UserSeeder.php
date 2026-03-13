@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin Mystery',
             'email' => 'admin@mlb.com',
             'password' => Hash::make('P@ssw0rd'),
+            'role'=>"admin",
             'email_verified_at' => now(),
         ]);
 
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             'name' => 'User Test',
             'email' => 'user@mlb.com',
             'password' => Hash::make('P@ssw0rd'),
+            'role'=>"customer",
             'email_verified_at' => now(),
         ]);
     }
