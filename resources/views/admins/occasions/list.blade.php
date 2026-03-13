@@ -195,7 +195,6 @@
 
             document.getElementById('editModal').classList.add('open')
         }
-
         function openEditModal(occasion) {
             console.log(occasion);
 
