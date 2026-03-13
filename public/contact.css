@@ -1,0 +1,16 @@
+.form-input {
+      width:100%; padding:.625rem .875rem; border:1.5px solid #e2e8f0; border-radius:.75rem;
+      font-size:.875rem; outline:none; transition:border-color .2s, box-shadow .2s; background:white; color:#1e293b;
+    }
+    .form-input:focus { border-color:#14b8a6; box-shadow:0 0 0 3px rgba(20,184,166,.12); }
+    .form-label { display:block; font-size:.8125rem; font-weight:600; color:#475569; margin-bottom:.375rem; }
+    .form-textarea { resize:vertical; min-height:120px; }
+    .contact-card { transition: all .3s ease; }
+    .contact-card:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+    .fade-in { animation:fadeIn .7s ease forwards; opacity:0; }
+    @keyframes fadeIn { to { opacity:1; } }
+    .stagger-1{animation-delay:.1s}.stagger-2{animation-delay:.2s}.stagger-3{animation-delay:.3s}
+    .stagger-4{animation-delay:.4s}.stagger-5{animation-delay:.5s}
+    .hero-bg { background:linear-gradient(135deg,#f0fdfa 0%,#f1f5f9 60%,#fafaf8 100%); }
+    .whatsapp-btn { background:#25D366; }
+    .whatsapp-btn:hover { background:#1da851; }

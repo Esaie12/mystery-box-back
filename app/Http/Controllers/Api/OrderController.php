@@ -127,6 +127,30 @@ class OrderController extends Controller
         }
     }
 
+    public function storeService(Request $request, OrderService $service)
+    {
+        $validated = $request->validate([
+            'category_id' => 'required|exists:categories,id',
+            'recipientName' => 'required|string|max:255',
+            'recipientSexe' => 'required|in:Femme,Homme,Autre',
+            'message' => 'nullable|string|max:500',
+            'anonymous' => 'boolean',
+            'recipientTel' => 'required|string|max:20',
+            'recipientAddress' => 'required|string',
+            'dateDelivery' => 'required|date',
+            'instructionDelivery' => 'nullable|string|max:255',
+            'transaction_id'=>['required','string']
+        ]);
+
+        $result = $service->create($validated, $request->user());
+
+        return response()->json([
+            'message' => 'Commande créée avec succès',
+            'order_id' => $result['order']->id,
+            'products'=> $result['products']
+        ], 201);
+    }
+
     /**
      * Détail d'une commande
      */

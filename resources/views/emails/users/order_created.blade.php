@@ -78,3 +78,7 @@
                     </div>
 
 @endsection
+
+@section('footer_msg')
+ Vous recevez cet email car vous avez passé une commande sur mystery-kdo.com
+ @endsection
