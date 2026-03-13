@@ -209,7 +209,7 @@
                     <!-- Header -->
                     <div class="header">
                         <div class="icon">🎁</div>
-                        <h1>Mystery Love Box</h1>
+                        <h1>Mystery Kdo</h1>
                         <p>L'art de la surprise</p>
                     </div>
                     
@@ -239,7 +239,7 @@
                         </p>
                         
                         <p style="font-size: 11px; color: #cccccc; margin-top: 20px;">
-                            Vous recevez cet email car vous avez passé une commande sur mystery-kdo.com
+                           @yield('footer_msg')
                         </p>
                     </div>
                     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\User\WelcomeUserMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -25,6 +27,8 @@ class AuthController extends Controller
 
         // Créer un token
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        Mail::to( $user->email )->send(new WelcomeUserMail($user));
 
         return response()->json([
             'message' => 'Utilisateur créé avec succès',
