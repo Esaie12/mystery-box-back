@@ -34,6 +34,8 @@ Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
 Route::get('auth/user', [AuthController::class, 'user']); // info utilisateur
 Route::post('auth/logout', [AuthController::class, 'logout']);
+Route::post('auth/resend-verification-email', [AuthController::class, 'resendVerificationEmail']);
+Route::get('auth/verify-email/{id}/{hash}', [AuthController::class, 'verifyEmail'])->name('email.verify');
 
 // -------------------- ADMIN --------------------
 Route::prefix('admin')->group(function () {

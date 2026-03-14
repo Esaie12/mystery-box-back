@@ -35,12 +35,14 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:20',
             'password' => 'required|string|min:6'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone ?? null,
             'password' => Hash::make($request->password),
         ]);
 
@@ -67,11 +69,13 @@ class UserController extends Controller
                 'email',
                 Rule::unique('users')->ignore($user->id)
             ],
+            'phone' => 'sometimes|nullable|string|max:20',
             'password' => 'sometimes|nullable|string|min:6'
         ]);
 
         if ($request->has('name')) $user->name = $request->name;
         if ($request->has('email')) $user->email = $request->email;
+        if ($request->has('phone')) $user->phone = $request->phone;
         if ($request->has('password') && $request->password) $user->password = Hash::make($request->password);
 
         $user->save();
