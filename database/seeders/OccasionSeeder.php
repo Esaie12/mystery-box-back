@@ -18,7 +18,7 @@ class OccasionSeeder extends Seeder
                 'description' => 'Créez la magie des fêtes avec une box soigneusement composée.',
                 'status' => 'active',
                 'date_start' => '2025-12-01',
-                'picture' => 'occasions/noel.jpg',
+                'picture' => 'assets/pictures/noel.avif',
                 'countries' => [
                     ['code' => 'FR', 'date_activate' => '2025-12-01'],
                     ['code' => 'BJ', 'date_activate' => '2025-12-02'],
@@ -32,7 +32,7 @@ class OccasionSeeder extends Seeder
                 'description' => 'Une sélection pensée pour ce mois béni, riche en partage.',
                 'status' => 'comming',
                 'date_start' => '2026-02-10',
-                'picture' => 'occasions/ramadan.jpg',
+                'picture' =>  'assets/pictures/ramadan.avif',
                 'countries' => [
                     ['code' => 'FR', 'date_activate' => '2026-02-10'],
                     ['code' => 'BJ', 'date_activate' => '2026-02-11'],
@@ -46,7 +46,7 @@ class OccasionSeeder extends Seeder
                 'description' => 'Offrez une journée inoubliable avec la box surprise idéale.',
                 'status' => 'active',
                 'date_start' => null,
-                'picture' => 'occasions/anniversaire.jpg',
+                'picture' =>  'assets/pictures/annif.avif',
                 'countries' => [
                     ['code' => 'FR','date_activate' => '2026-02-10'],
                     ['code' => 'BJ','date_activate' => '2026-02-10'],
