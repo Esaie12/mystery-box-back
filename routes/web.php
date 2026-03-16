@@ -23,7 +23,7 @@ Route::get('/contact', function () {
 
 // Redirection après connexion
 Route::get('/home', function () {
-    return redirect()->route('welcome'); // Tu peux personnaliser selon le rôle
+    return redirect()->route('welcome');
 })->name('home')->middleware('auth','redirect_access');
 
 // Routes pour les utilisateurs connectés (clients)
@@ -40,7 +40,7 @@ Route::middleware(['auth', 'customer_access'])->group(function () {
 // Routes pour les admins
 require __DIR__.'/admin.php';
 
-// Pages d’authentification
+/*
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
@@ -52,6 +52,8 @@ Route::get('/verify-email', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+*/
+
 //Route pour debugger l'authentification
 Route::get('/debug-auth', function () {
     return [
