@@ -16,12 +16,16 @@ class CustomerAccessMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-         if (!Auth::check()) {
+        // Si l'utilisateur n'est pas authentifié
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role !== 'customer') {
-            abort(403);
+        // Permettre aux customers ET aux admins d'accéder
+        $allowedRoles = ['customer', 'admin'];
+
+        if (!in_array(Auth::user()->role, $allowedRoles)) {
+            abort(403, 'Accès non autorisé');
         }
 
         return $next($request);

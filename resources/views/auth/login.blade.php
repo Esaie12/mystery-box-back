@@ -20,7 +20,7 @@ font-size:.875rem; outline:none; transition:border-color .2s, box-shadow .2s, ba
 .stagger-3{animation-delay:.24s}
 .stagger-4{animation-delay:.32s}
 
-.eye-btn{ position:absolute; right:.75rem; top:50%; transform:translateY(-50%); cursor:pointer; }
+.eye-btn{ position:absolute; right:.75rem; top:50%; transform:translateY(-50%); cursor:pointer; background:none; border:none; }
 </style>
 @endpush
 
@@ -49,110 +49,105 @@ Connectez-vous à votre compte Mystery Box
 <!-- Card -->
 <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-xl p-8 fade-in stagger-2">
 
+<form method="POST" action="/login" class="space-y-5">
+    @csrf
 
-<form id="loginForm" method="POST" action="{{ route('login') }}" class="space-y-5">
-@csrf
+    <!-- Email -->
+    <div>
+        <label for="email" class="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">
+            Adresse email
+        </label>
+        <input
+            id="email"
+            type="email"
+            name="email"
+            value="{{ old('email') }}"
+            class="form-input light-input"
+            placeholder="vous@email.com"
+            required
+            autocomplete="email">
+        @error('email')
+            <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
+        @enderror
+    </div>
 
-<div>
-<label class="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">
-Adresse email
-</label>
+    <!-- Password -->
+    <div>
+        <div class="flex items-center justify-between mb-1.5">
+            <label for="password" class="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                Mot de passe
+            </label>
+            <a href="{{ route('password.request') }}"
+                class="text-xs text-teal-600 hover:text-teal-700 font-medium">
+                Mot de passe oublié ?
+            </a>
+        </div>
 
-<input
-id="email"
-type="email"
-name="email"
-value="{{ old('email') }}"
-class="form-input light-input"
-placeholder="vous@email.com"
-required
-autocomplete="email">
-</div>
+        <div class="relative">
+            <input
+                id="password"
+                name="password"
+                type="password"
+                class="form-input light-input pr-10"
+                placeholder="••••••••"
+                required
+                autocomplete="current-password">
 
+            <button type="button"
+                class="eye-btn text-slate-400 hover:text-slate-600"
+                onclick="togglePwd('password')">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+            </button>
+        </div>
+        @error('password')
+            <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
+        @enderror
+    </div>
 
-<div>
+    <!-- Remember -->
+    <div class="flex items-center gap-2">
+        <input id="remember" name="remember" type="checkbox" class="w-4 h-4 rounded border-slate-300 accent-teal-600">
+        <label for="remember" class="text-sm text-slate-600 cursor-pointer">
+            Se souvenir de moi
+        </label>
+    </div>
 
-<div class="flex items-center justify-between mb-1.5">
+    <!-- Errors -->
+    @if($errors->any())
+        <div class="bg-red-50 border border-red-200 rounded-xl p-3 text-sm text-red-600">
+            Email ou mot de passe incorrect.
+        </div>
+    @endif
 
-<label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-Mot de passe
-</label>
+    <!-- Submit -->
+    <button type="submit"
+        class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-teal-600 text-white font-semibold text-sm hover:bg-teal-700 transition-all">
 
-<!-- CORRECTION ICI -->
-<a href="{{ route('password.request') }}"
-class="text-xs text-teal-600 hover:text-teal-700 font-medium">
-Mot de passe oublié ?
-</a>
+        Se connecter
 
-</div>
-
-<div class="relative">
-
-<input
-id="password"
-name="password"
-type="password"
-class="form-input light-input pr-10"
-placeholder="••••••••"
-required
-autocomplete="current-password">
-
-<button type="button"
-class="eye-btn text-slate-400 hover:text-slate-600"
-onclick="togglePwd('password')">
-
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-</svg>
-
-</button>
-</div>
-</div>
-
-
-<div class="flex items-center gap-2">
-<input id="remember" type="checkbox" class="w-4 h-4 rounded border-slate-300 accent-teal-600">
-<label for="remember" class="text-sm text-slate-600 cursor-pointer">
-Se souvenir de moi
-</label>
-</div>
-
-
-@if($errors->any())
-<div class="bg-red-50 border border-red-200 rounded-xl p-3 text-sm text-red-600">
-Email ou mot de passe incorrect.
-</div>
-@endif
-
-
-<button type="submit"
-class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-teal-600 text-white font-semibold text-sm hover:bg-teal-700 transition-all">
-
-Se connecter
-
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-</svg>
-
-</button>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+    </button>
 
 </form>
 
 </div>
 
-
 <!-- Register -->
 <p class="text-center text-sm text-slate-500 mt-6 fade-in stagger-3">
-Pas encore de compte ?
+    Pas encore de compte ?
 
-<a href="{{ route('register') }}"
-class="text-teal-600 font-semibold hover:text-teal-700">
-Créer un compte
-</a>
+    <a href="{{ route('register') }}"
+        class="text-teal-600 font-semibold hover:text-teal-700">
+        Créer un compte
+    </a>
 </p>
 
 </div>
@@ -160,12 +155,10 @@ Créer un compte
 
 @push('scripts')
 <script>
-
 function togglePwd(id){
-const inp=document.getElementById(id);
-inp.type = inp.type === 'password' ? 'text' : 'password';
+    const inp = document.getElementById(id);
+    inp.type = inp.type === 'password' ? 'text' : 'password';
 }
-
 </script>
 @endpush
 

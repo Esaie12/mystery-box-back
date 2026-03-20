@@ -336,5 +336,21 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         </div>
+
     </section>
+    <!-- Logout Button -->
+@auth
+<div class="fixed bottom-6 right-6 z-50">
+    <form action="{{ route('logout') }}" method="POST" class="inline">
+        @csrf
+        <button type="submit"
+                style="padding: 0.75rem 1.5rem; background: #ef4444; color: white; border: none; border-radius: 0.75rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;"
+                onmouseover="this.style.backgroundColor='#dc2626'; this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.backgroundColor='#ef4444'; this.style.transform='translateY(0)'">
+            <svg style="width: 1.25rem; height: 1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+            Se déconnecter
+        </button>
+    </form>
+</div>
+@endauth
 </x-user-layout>
