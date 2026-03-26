@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'role',
         'affiliate_code',
+        'country',
         'two_factor_secret',
         'two_factor_recovery_codes',
     ];

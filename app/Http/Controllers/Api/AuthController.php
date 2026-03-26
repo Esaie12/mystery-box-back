@@ -25,6 +25,7 @@ class AuthController extends Controller
         'email' => 'required|email|unique:users,email',
         'password' => 'required|string|min:8|confirmed',
         'phone' => 'nullable|string|max:20',
+        'country' => 'nullable|string|max:10',
     ], [
         'name.required' => 'Le nom est obligatoire.',
         'email.required' => 'L\'email est obligatoire.',
@@ -39,6 +40,7 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'] ?? null,
+            'country' => $validated['country'] ?? null, // <-- sauvegarde le pays
             'password' => Hash::make($validated['password']),
             'role' => 'customer',
             // ✅ EN DEV : Marquer comme vérifié immédiatement
