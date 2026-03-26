@@ -65,9 +65,14 @@
           </ul>
           <p class="text-xs text-slate-400 mt-3 italic">* Les produits varient à chaque commande — c'est ça la surprise !</p>
         </div>
-        <a href="checkout.html?occasion=noel&categorie=essentielle&nom=Essentielle&prix=29%E2%82%AC" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-all">
-          Choisir cette catégorie <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
+     <a href="{{ route('checkout') }}?occasion=noel&categorie=essentielle&nom=Essentielle&prix=29"
+   class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-all">
+   Choisir cette catégorie
+   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+   </svg>
+</a>
       </div>
 
       <!-- PREMIUM -->
@@ -91,7 +96,7 @@
           </ul>
           <p class="text-xs text-slate-400 mt-3 italic">* Les produits varient à chaque commande — c'est ça la surprise !</p>
         </div>
-        <a href="checkout.html?occasion=noel&categorie=premium&nom=Premium&prix=59%E2%82%AC" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 shadow-lg shadow-teal-200 transition-all">
+        <a href="{{ route('checkout') }}?occasion=noel&categorie=premium&nom=Premium&prix=59" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 shadow-lg shadow-teal-200 transition-all">
           Choisir cette catégorie <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
@@ -117,7 +122,7 @@
           </ul>
           <p class="text-xs text-slate-400 mt-3 italic">* Les produits varient à chaque commande — c'est ça la surprise !</p>
         </div>
-        <a href="checkout.html?occasion=noel&categorie=luxe&nom=Luxe&prix=99%E2%82%AC" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-all">
+        <a href="{{ route('checkout') }}?occasion=noel&categorie=luxe&nom=Luxe&prix=99" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-all">
           Choisir cette catégorie <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>

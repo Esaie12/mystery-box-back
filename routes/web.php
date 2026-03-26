@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\OrderController;
 
 // Pages publiques
 Route::get('/', function () {
@@ -69,6 +70,13 @@ Route::middleware(['auth', 'customer_access'])->group(function () {
     Route::get('/account/edit', function () {
         return view('users.edit_account');
     })->name('edit_account');
+    // Checkout - protégé par auth
+    Route::get('/checkout', function () {
+        return view('users.checkout');
+    })->name('checkout');
+
+    // Créer la commande
+    Route::post('/checkout', [OrderController::class, 'store'])->name('orders.store');
 });
 
 // Logout
